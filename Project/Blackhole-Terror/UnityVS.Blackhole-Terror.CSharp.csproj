@@ -60,7 +60,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Resources\Scripts\CharacterMovement.cs" />
+    <Compile Include="Assets\Resources\Scripts\CharacterController.cs" />
     <Compile Include="Assets\Resources\Scripts\FloorConstruct.cs" />
     <Compile Include="Assets\Resources\Scripts\Transform\Rotation.cs" />
   </ItemGroup>
