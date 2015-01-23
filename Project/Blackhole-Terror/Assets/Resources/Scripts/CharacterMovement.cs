@@ -30,9 +30,9 @@ public class CharacterMovement : MonoBehaviour {
 	void FixedUpdate () {
 		move = Input.GetAxis ("Horizontal");
 		rigidbody2D.velocity = new Vector2 (move * Speed, rigidbody2D.velocity.y);
-		if (Input.GetButtonDown("Jump") && CanJump)
+		if (Input.GetButton("Jump") && CanJump)
 		{
-			rigidbody2D.AddForce (new Vector2 (rigidbody2D.velocity.x,JumpForce));
+			rigidbody2D.AddForce (new Vector2 (rigidbody2D.velocity.x, JumpForce));
 			CanJump = false;
 			JumpTime  = MaxJumpTime;
 		}
