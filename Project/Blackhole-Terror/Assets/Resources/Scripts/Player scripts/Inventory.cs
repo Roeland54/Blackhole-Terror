@@ -4,8 +4,8 @@ using System.Collections;
 
 public class Inventory : MonoBehaviour {
 
-    public float HugeForce = 100f;
-    public float DropForce = 10;
+    public float HugeForce = 10f;
+    public float DropForce = 1f;
 
     public bool IsFull = false;
     public Canvas HudDisplay;
@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour {
         {
             FireObject(HudDisplay.GetComponent<InventoryToggleBehavior>().SelectedIndex, HugeForce);
         }
-        else if (Input.GetButtonDown("Fire1"))
+        else if (Input.GetButtonDown("Fire2"))
         {
             FireObject(HudDisplay.GetComponent<InventoryToggleBehavior>().SelectedIndex, DropForce);            
         }
@@ -39,17 +39,21 @@ public class Inventory : MonoBehaviour {
 
     public void RemoveAt(int index) {
         HudDisplay.GetComponent<InventoryToggleBehavior>().inventoryButtons[index].GetComponent<ToggleItemScript>().Item = null;
-
+        inventory[index] = null;
     }
 
     private void FireObject(int index, float force) {
 
         if (inventory[index])
         {
-            float angle = gameObject.GetComponent<AimingController>().aimingAngle;
-            inventory[index].transform.position = transform.position;
+            var firepoint = transform.FindChild("Aiming Arrow/FirePoint");
+            inventory[index].transform.position = firepoint.position;
+            inventory[index].transform.rotation = firepoint.rotation;
+
             inventory[index].SetActive(true);
-            inventory[index].rigidbody2D.AddForce(new Vector2(Mathf.Cos(angle) * force, Mathf.Sin(angle) * force));
+            inventory[index].rigidbody2D.AddRelativeForce(new Vector2(force, 0), ForceMode2D.Impulse);
+
+            RemoveAt(index);
         }
         
     }
