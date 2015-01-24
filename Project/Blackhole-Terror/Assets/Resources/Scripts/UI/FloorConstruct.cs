@@ -60,6 +60,7 @@ public class FloorConstruct : MonoBehaviour {
     private void InstantiateFloorPiece(float x, Sprite sprite) {
         var section = new GameObject();
         section.transform.parent = this.transform;
+        section.transform.rotation = this.transform.rotation;
         section.transform.localPosition = new Vector2(x, 0);
         var sp = section.AddComponent<SpriteRenderer>();
         sp.sprite = sprite;
