@@ -13,7 +13,7 @@ public class PlatformDestroyer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		currentHP = currentHP - Time.deltaTime;
+//		currentHP = currentHP - Time.deltaTime;
 		if (currentHP < 1) {
 						Destroy ();
 				}	
