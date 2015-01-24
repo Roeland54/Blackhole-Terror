@@ -41,11 +41,17 @@ public class Inventory : MonoBehaviour {
                 break;
             }
         }
+        IsFull = true;
+        foreach (var i in inventory)
+        {
+            IsFull = IsFull && i;
+        }
     }
 
     public void RemoveAt(int index) {
         HudDisplay.GetComponent<InventoryToggleBehavior>().inventoryButtons[index].GetComponent<ToggleItemScript>().Item = null;
         inventory[index] = null;
+        IsFull = false;
     }
 
     private void FireObject(int index, float force) {
