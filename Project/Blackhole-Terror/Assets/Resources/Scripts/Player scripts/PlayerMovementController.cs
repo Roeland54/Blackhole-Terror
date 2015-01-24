@@ -39,6 +39,11 @@ public class PlayerMovementController : MonoBehaviour {
 
 	void Update ()
 	{
+        var animator = GetComponent<Animator>();
+        animator.SetBool("GoLeft", rigidbody2D.velocity.x > 0.01);
+        animator.SetBool("GoRight", rigidbody2D.velocity.x < -0.01);
+        animator.SetBool("Grounded", grounded);
+
 		if (grounded && Input.GetButtonDown ("Jump")) 
 		{	
 

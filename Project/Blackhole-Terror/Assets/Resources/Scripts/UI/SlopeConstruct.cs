@@ -72,6 +72,7 @@ public class SlopeConstruct : MonoBehaviour {
         var section = new GameObject();
         section.transform.parent = this.transform;
         section.transform.localPosition = new Vector2(x, y);
+        section.transform.rotation = transform.rotation;
         var sp = section.AddComponent<SpriteRenderer>();
         sp.sprite = sprite;
 
