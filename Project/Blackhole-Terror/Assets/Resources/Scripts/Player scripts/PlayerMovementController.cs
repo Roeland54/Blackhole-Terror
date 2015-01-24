@@ -22,8 +22,10 @@ public class PlayerMovementController : MonoBehaviour {
 		grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
 		float move = Input.GetAxis ("Horizontal");
-		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
-		
+        if (grounded)
+        {
+            rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
+        }
 	}
 
 	void Update ()
