@@ -2,9 +2,7 @@
 using System.Collections;
 
 public class Rotation : MonoBehaviour {
-
-//eenvoudige code om iets te doen draaien
-
+	
 	public Vector3 rotation;
 
 	// Use this for initialization
