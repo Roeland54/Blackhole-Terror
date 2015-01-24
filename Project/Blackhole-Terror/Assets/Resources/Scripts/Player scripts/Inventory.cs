@@ -58,9 +58,9 @@ public class Inventory : MonoBehaviour {
 
             inventory[index].SetActive(true);
             inventory[index].rigidbody2D.AddRelativeForce(new Vector2(force, 0), ForceMode2D.Impulse);
-
+            inventory[index].SendMessage("OnThrown");
+            
             RemoveAt(index);
         }
-        
     }
 }
