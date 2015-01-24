@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour {
             if (!inventory[i])
             {
                 inventory[i] = item;
-                HudDisplay.GetComponent<InventoryToggleBehavior>().inventoryButtons[i].GetComponent<ToggleItemScript>().Item = item.GetComponent<SpriteRenderer>().sprite;
+                HudDisplay.GetComponent<InventoryToggleBehavior>().inventoryButtons[i].GetComponent<ToggleItemScript>().Item = (item.GetComponent<SpriteRenderer>() ?? item.GetComponentInChildren<SpriteRenderer>()).sprite;
                 break;
             }
         }
