@@ -34,7 +34,7 @@ public class Inventory : MonoBehaviour {
                 var renderer = item.GetComponent<SpriteRenderer>();
                 if (!renderer)
 	            {
-		             renderer = item.GetComponentInChildren<SpriteRenderer>();
+		             renderer = item.transform.FindChild("Sprite").GetComponent<SpriteRenderer>();
 	            }
 
                 HudDisplay.GetComponent<InventoryToggleBehavior>().inventoryButtons[i].GetComponent<ToggleItemScript>().Item = renderer.sprite;
