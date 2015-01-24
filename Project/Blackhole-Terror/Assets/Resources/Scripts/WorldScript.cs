@@ -14,7 +14,7 @@ public class WorldScript : MonoBehaviour {
         }
         else
         {
-            Physics2D.gravity = Vector2.Lerp(Physics2D.gravity, new Vector2(0f, 9.81f), speed);
+            Physics2D.gravity = Vector2.Lerp(Physics2D.gravity, new Vector2(0f, 9.81f), speed * Time.deltaTime);
         }
 	}
 }

@@ -18,23 +18,25 @@ public class AimingController : MonoBehaviour {
 		aimingArrow.position = this.transform.position;
 		aimPoint = Input.mousePosition;
 		aimPoint = Camera.main.ScreenToWorldPoint (aimPoint);
-		aimPoint = aimPoint - this.transform.position;
 
-		aimingAngle = (Mathf.Atan2(aimPoint.y, aimPoint.x) * (180 / Mathf.PI));
+        Debug.DrawLine(aimPoint, this.transform.position, Color.green);
+        //aimPoint = aimPoint - this.transform.position;
 
-		aimPoint.y = aimPoint.y * 25;
+        //aimingAngle = (Mathf.Atan2(aimPoint.y, aimPoint.x) * (180 / Mathf.PI));
 
-		if (aimPoint.x < 0) 
-		{
-			aimPoint.y += 180;	
-		}
-		else if (aimPoint.y < 0)
-		{
-			aimPoint.y += 360;
-		}
+        //aimPoint.y = aimPoint.y * 25;
 
-		aimPoint = new Vector3 (0, 0, aimPoint.y);
-		aimingArrow.eulerAngles = aimPoint;
+        //if (aimPoint.x < 0) 
+        //{
+        //    aimPoint.y += 180;	
+        //}
+        //else if (aimPoint.y < 0)
+        //{
+        //    aimPoint.y += 360;
+        //}
+
+        //aimPoint = new Vector3 (0, 0, aimPoint.y);
+        //aimingArrow.eulerAngles = aimPoint;
 
 	}
 }
