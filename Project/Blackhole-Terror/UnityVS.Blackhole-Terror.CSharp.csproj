@@ -62,7 +62,10 @@
   <ItemGroup>
     <Compile Include="Assets\Resources\Scripts\CharacterController.cs" />
     <Compile Include="Assets\Resources\Scripts\FloorConstruct.cs" />
+    <Compile Include="Assets\Resources\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Resources\Scripts\Pickup.cs" />
     <Compile Include="Assets\Resources\Scripts\Transform\Rotation.cs" />
+    <Compile Include="Assets\Resources\Scripts\WorldScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

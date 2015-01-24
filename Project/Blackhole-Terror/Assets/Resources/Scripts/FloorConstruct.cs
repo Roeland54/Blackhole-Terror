@@ -10,24 +10,15 @@ public class FloorConstruct : MonoBehaviour {
 
     public int NumberOffPieces = 1;
     private int LastNumber = 0;
-    private List<GameObject> tiles;
 
     void Start() {
-        tiles = new List<GameObject>();
     }
 
 	// Use this for initialization
 	void Update () {
         if (NumberOffPieces != LastNumber)
         {
-            try
-            {
-                DestroyImmediate(gameObject.GetComponent<BoxCollider2D>());
-            }
-            catch { }
-
-            tiles.ForEach(DestroyImmediate);
-            tiles.Clear();
+            Cleanup();
 
             float tileSize = Left.bounds.size.x;
             float totalsize = tileSize * (NumberOffPieces + 2);
@@ -52,14 +43,26 @@ public class FloorConstruct : MonoBehaviour {
         
 	}
 
+    private void Cleanup() {
+        try
+        {
+            DestroyImmediate(gameObject.GetComponent<BoxCollider2D>());
+        }
+        catch { }
+
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            DestroyImmediate(transform.GetChild(i).gameObject);
+        }
+
+    }
+
     private void InstantiateFloorPiece(float x, Sprite sprite) {
         var section = new GameObject();
         section.transform.parent = this.transform;
         section.transform.localPosition = new Vector2(x, 0);
         var sp = section.AddComponent<SpriteRenderer>();
         sp.sprite = sprite;
-
-        tiles.Add(section);
     }
 	
 }
