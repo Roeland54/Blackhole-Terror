@@ -43,9 +43,14 @@ public class Inventory : MonoBehaviour {
     }
 
     private void FireObject(int index, float force) {
-        float angle = gameObject.GetComponent<AimingController>().aimingAngle;
-        inventory[index].transform.position = transform.position;
-        inventory[index].SetActive(true);
-        inventory[index].rigidbody2D.AddForce(new Vector2(Mathf.Cos(angle) * force, Mathf.Sin(angle) * force));
+
+        if (inventory[index])
+        {
+            float angle = gameObject.GetComponent<AimingController>().aimingAngle;
+            inventory[index].transform.position = transform.position;
+            inventory[index].SetActive(true);
+            inventory[index].rigidbody2D.AddForce(new Vector2(Mathf.Cos(angle) * force, Mathf.Sin(angle) * force));
+        }
+        
     }
 }
