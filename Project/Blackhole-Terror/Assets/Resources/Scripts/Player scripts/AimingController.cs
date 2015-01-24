@@ -6,6 +6,7 @@ public class AimingController : MonoBehaviour {
 	public Vector3 aimPoint;
 	public Transform aimingArrow;
 	public float aimingAngle;
+	public float rotationSpeed = 10f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,19 +23,23 @@ public class AimingController : MonoBehaviour {
 
 		aimingAngle = (Mathf.Atan2(aimPoint.y, aimPoint.x) * (180 / Mathf.PI));
 
-		aimPoint.y = aimPoint.y * 25;
+		//aimPoint.y = aimPoint.y * 25;
+//
+//		if (aimPoint.x < 0) 
+//		{
+//			aimPoint.y += 180;	
+//		}
+//		else if (aimPoint.y < 0)
+//		{
+//			aimPoint.y += 360;
+//		}
 
-		if (aimPoint.x < 0) 
+		if (aimingAngle < 0) 
 		{
-			aimPoint.y += 180;	
-		}
-		else if (aimPoint.y < 0)
-		{
-			aimPoint.y += 360;
+			aimingAngle += 360;
 		}
 
-		aimPoint = new Vector3 (0, 0, aimPoint.y);
+		aimPoint = new Vector3 (0, 0, Mathf.LerpAngle(aimingArrow.eulerAngles.z, aimingAngle, rotationSpeed*Time.deltaTime));
 		aimingArrow.eulerAngles = aimPoint;
-
 	}
 }
