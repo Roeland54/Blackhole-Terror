@@ -22,6 +22,21 @@ public class PlayerDamage : MonoBehaviour {
 			}
 		}
 	}
+	void OnEnterStay2D(Collider2D other) {
+		if (other.tag == "DamageAll")
+		{
+			if (hp < 2)
+			{
+				rigidbody2D.AddForce(Vector2.up * forceAdder);
+				Die ();
+			}
+			else
+			{
+				hp = hp - 1;
+			}
+		}
+	}
+
 
 	void Die() {
 		Instantiate(explosionPrefab, new Vector3(transform.position.x, transform.position.y, -5.0F), transform.rotation);
