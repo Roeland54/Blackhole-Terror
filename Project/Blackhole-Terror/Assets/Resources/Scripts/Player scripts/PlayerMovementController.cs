@@ -6,11 +6,11 @@ public class PlayerMovementController : MonoBehaviour {
 	
 	public float maxSpeed = 10f;
 	
-	bool grounded = false;
+	bool grounded = true;
 	public Transform groundCheck;
-	float groundRadius = 0.2f;
+	float groundRadius = 0.05f;
 	public LayerMask whatIsGround; 
-	public float jumpForce = 10f;
+	public float jumpForce = 200f;
 	
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class PlayerMovementController : MonoBehaviour {
 	
 	void FixedUpdate ()
 	{
-		//grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius);
+		grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
 		float move = Input.GetAxis ("Horizontal");
 		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
@@ -28,8 +28,9 @@ public class PlayerMovementController : MonoBehaviour {
 
 	void Update ()
 	{
-		if (grounded && Input.GetKeyDown (KeyCode.Space)) 
-		{
+		if (grounded && Input.GetButtonDown ("Jump")) 
+		{	
+
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 		}
 
