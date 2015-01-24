@@ -5,6 +5,7 @@ public class DamageReceiver : MonoBehaviour {
 
 	public int hp = 1;
 	public float destroyDelay = 0.5F;
+	public float forceAdder = 10.0F;
 	public GameObject explosionPrefab;
 
 	void OnTriggerStay2D(Collider2D other) {
@@ -12,7 +13,7 @@ public class DamageReceiver : MonoBehaviour {
 		{
 			if (hp < 2)
 			{
-				rigidbody2D.AddForce(Vector2.up * 10);
+				rigidbody2D.AddForce(Vector2.up * forceAdder);
 				Die ();
 			}
 			else
