@@ -36,9 +36,6 @@ public class FloorConstruct : MonoBehaviour {
 
             LastNumber = NumberOffPieces;
 
-            var colider = gameObject.AddComponent<BoxCollider2D>();
-            colider.size = new Vector2(totalsize, tileSize);
-            colider.center = new Vector2(-tileSize / 2, 0);
         }
         
 	}
@@ -64,6 +61,7 @@ public class FloorConstruct : MonoBehaviour {
         section.transform.localPosition = new Vector2(x, 0);
         var sp = section.AddComponent<SpriteRenderer>();
         sp.sprite = sprite;
+		var colider = section.AddComponent<BoxCollider2D>();
     }
 	
 }
