@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[ExecuteInEditMode]
 public class PlayerCamera : MonoBehaviour {
 
     public float MaxDistance = 5f;
