@@ -29,7 +29,7 @@ public class FloorConstruct : MonoBehaviour {
             for (int i = 0; i < NumberOffPieces; i++)
             {
                 startX += tileSize;
-                InstantiateFloorPiece(startX, Between[Random.Range(0, Between.Length)]);
+                InstantiateFloorPiece(startX, Between[Random.Range(0, Between.Length - 1)]);
             }
             startX += tileSize;
             InstantiateFloorPiece(startX, Right);

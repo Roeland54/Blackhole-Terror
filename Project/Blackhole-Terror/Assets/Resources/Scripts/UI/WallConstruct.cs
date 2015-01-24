@@ -26,7 +26,7 @@ public class WallConstruct : MonoBehaviour {
 			for (int i = 0; i < NumberOffPieces; i++)
 			{
 				startY += tileSize;
-				InstantiateWallPiece(startY, Between[Random.Range(0, Between.Length)]);
+				InstantiateWallPiece(startY, Between[Random.Range(0, Between.Length - 1)]);
 			}
 			startY += tileSize;
 			InstantiateWallPiece(startY, Top);
