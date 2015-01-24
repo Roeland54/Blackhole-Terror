@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Pickup : MonoBehaviour {
 
-    public float PickupDistance = 20f;
+    public float PickupDistance = .1f;
+    public LayerMask PickupMask;
 
 	// Use this for initialization
 	void Start () {
@@ -16,17 +17,13 @@ public class Pickup : MonoBehaviour {
         {
             Debug.Log("Pickup is hit");
 
-            float feetY = renderer.bounds.max.y;
-            var colliders = Physics2D.OverlapAreaAll(new Vector2(transform.position.x - PickupDistance, feetY - PickupDistance), new Vector2(transform.position.x - PickupDistance, feetY + PickupDistance));
+            var colliders = Physics2D.OverlapCircleAll(renderer.bounds.center, PickupDistance, PickupMask);
             Debug.Log(string.Format("Found {0} ", colliders.Length));
             
             foreach (var collider in colliders)
             {
-                var pickupItem = collider.gameObject.GetComponent<PickupAble>();
-                if (pickupItem)
-                {
-                    DestroyImmediate(collider.gameObject);
-                }
+                Debug.Log(collider.gameObject.name);
+                DestroyImmediate(collider.gameObject);
             }
 
         }
