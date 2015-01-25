@@ -49,6 +49,10 @@ public class PlayerMovementController : MonoBehaviour {
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 		}
 
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.LoadLevel("GameOver");
+        }
 	}
 
 }
