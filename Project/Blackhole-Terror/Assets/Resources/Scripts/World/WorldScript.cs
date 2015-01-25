@@ -14,6 +14,7 @@ public class WorldScript : MonoBehaviour {
 
     void Start() {
         Menu.gameObject.SetActive(false);
+		Screen.showCursor = true;
     }
     
     void FixedUpdate () {
@@ -60,6 +61,6 @@ public class WorldScript : MonoBehaviour {
 
     public void StartGame() {
         Physics2D.gravity = new Vector2(0f, -9.81f * 2.5f);
-        Application.LoadLevel("GamePlay");
+        Application.LoadLevel("GamePlay Linked");
     }
 }
