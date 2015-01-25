@@ -22,7 +22,7 @@ public class PlayerDamage : MonoBehaviour {
 			}
 		}
 	}
-	void OnEnterStay2D(Collider2D other) {
+	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "DamageAll")
 		{
 			if (hp < 2)
