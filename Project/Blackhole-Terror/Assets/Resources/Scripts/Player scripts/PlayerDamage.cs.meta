@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: e324a654c4549e749b5cfbf402b2a260
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - explosionPrefab: {fileID: 100000, guid: 04d4a36bb062c704c95f77041cc35eaf, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

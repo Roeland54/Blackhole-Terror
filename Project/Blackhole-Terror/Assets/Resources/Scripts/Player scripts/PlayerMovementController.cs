@@ -7,7 +7,6 @@ public class PlayerMovementController : MonoBehaviour {
 	public float maxSpeed = 10f;
 	
 	bool grounded = true;
-    bool canMove = true;
     public Transform[] wallChecks = new Transform[4];
     public Transform groundCheck;
 	float groundRadius = 0.05f;
