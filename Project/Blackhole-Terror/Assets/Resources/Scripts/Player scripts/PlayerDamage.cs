@@ -37,9 +37,17 @@ public class PlayerDamage : MonoBehaviour {
 		}
 	}
 
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.layer == 11) {
+            Die();
+        }
+    }
+    
+    
 
 	void Die() {
 		Instantiate(explosionPrefab, new Vector3(transform.position.x, transform.position.y, -5.0F), transform.rotation);
-		Application.LoadLevel(Application.loadedLevel);
+        Application.LoadLevel("GameOver");
 	}
 }
