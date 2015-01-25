@@ -21,7 +21,7 @@ public class Collapse : MonoBehaviour {
 
         if (this.gameObject.transform.localScale.x < 0.5)
         {
-            Destroy(gameObject);
+            Application.LoadLevel("GameWin");
         }
 	}
 

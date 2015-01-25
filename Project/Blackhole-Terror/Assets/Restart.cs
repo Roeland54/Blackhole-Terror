@@ -16,4 +16,8 @@ public class Restart : MonoBehaviour {
     public void restart() {
         Application.LoadLevel("Gameplay Linked");
     }
+
+    public void Exit() {
+        Application.Quit();
+    }
 }
