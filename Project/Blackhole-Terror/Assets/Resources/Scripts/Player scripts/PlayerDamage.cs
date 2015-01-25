@@ -22,6 +22,7 @@ public class PlayerDamage : MonoBehaviour {
 			}
 		}
 	}
+
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "DamageAll")
 		{
@@ -43,8 +44,6 @@ public class PlayerDamage : MonoBehaviour {
             Die();
         }
     }
-    
-    
 
 	void Die() {
 		Instantiate(explosionPrefab, new Vector3(transform.position.x, transform.position.y, -5.0F), transform.rotation);
