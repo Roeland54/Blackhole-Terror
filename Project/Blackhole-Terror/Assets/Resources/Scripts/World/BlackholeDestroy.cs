@@ -15,6 +15,10 @@ public class BlackholeDestroy : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Destroy (other.gameObject);	
+		if (other.gameObject.name == "Character") {
+						Application.LoadLevel ("GameOver");	
+				} else {
+						Destroy (other.gameObject);
+				}
 	}
 }
